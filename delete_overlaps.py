@@ -1,4 +1,14 @@
+##########################################
+######## script by Zhengyang Chen ########
+########         +1s              ########
+##########################################
+
+
+
+
+#import rhino modules
 import rhinoscriptsyntax as rs
+
 
 #defines
 OK=0
@@ -7,6 +17,7 @@ TRUE=1
 FALSE=0
 OVERFLOW=-2
 
+#compare functions, define if two object overlaps
 class _compare():
 
     def __init__(self):
@@ -69,6 +80,8 @@ class delobj:
                     count+=1
                     rs.DeleteObject(self.pts[j])
         print "delete", count, "points"
+        
+        #renew the point list
         newlist=[]
         for i in range(len(self.pts)):
             if rs.IsPoint(self.pts[i]):
@@ -86,6 +99,8 @@ class delobj:
                     count+=1
                     rs.DeleteObject(self.crvs[j])
         print "delete", count, "curves"
+        
+        #renew the curve list
         newlist=[]
         for i in range(len(self.crvs)):
             if rs.IsPoint(self.crvs[i]):
@@ -96,6 +111,8 @@ class delobj:
     def delsrfs(self):
         return OK
 
+    
+#classify the selected objects
 class pool:
     def __init__(self,objs):
         self.points=[]
