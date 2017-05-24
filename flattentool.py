@@ -167,7 +167,7 @@ class element:
         if self.object==None:return ERROR
         edges=rs.DuplicateEdgeCurves(self.object)
         edge=rs.JoinCurves(edges,True,None)
-        rs.DeleteObject(self.object)
+        rs.DeleteObject(self.object) 
     
     
 def main():
